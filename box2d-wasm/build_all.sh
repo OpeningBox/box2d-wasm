@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
+source "$EMSDK_HOME/emsdk_env.sh"
+
+export EMSCRIPTEN_TOOLS="$(realpath "$(dirname "$(realpath "$(which emcc)")")/tools")"
+export PYTHON3="${EMSDK_PYTHON:-"$(which python3)"}"
+
+export TARGET_TYPE="${TARGET_TYPE:-Release}"
+
 set -eo pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # This script just does what the README says, except with some extra validation and interactivity.
-# If you're more interested in going through step-by-step, and avoiding rebuilds of files you've 
+# If you're more interested in going through step-by-step, and avoiding rebuilds of files you've
 # already built: you'll probably prefer to cherry-pick lines from the README.
 
 Red='\033[0;31m'
@@ -66,4 +73,4 @@ do
   >&2 echo -e "Completed '$FLAVOUR' flavour"
 
   popd
-done    
+done
