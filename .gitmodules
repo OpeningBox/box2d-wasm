@@ -1,4 +1,4 @@
 [submodule "box2d"]
 	path = box2d
 	url = git@github.com:OpeningBox/box2d.git
-	branch = test
+	branch = dev-v2.4.1
